@@ -1,0 +1,29 @@
+一 安装
+1.首先要在github上创一个账号
+2.然后下一个git软件装在本机上,此时可查看git教程；
+3.然后就可以上传代码到github上了。
+二.问题
+1.有时候在上传代码时会出现一些问题，以下是我常遇到的问题
+(1)要删除github仓库里的某个文件：
+ 解决办法如下：
+ git rm -r --cached some-directory
+ git commit -m 'remove the now ignore directory "some-directory"'
+ git push origin master
+(2)错误提示：fatal:remote origin already exits
+ 解决办法如下：
+  1.先输入$ git remote rm origin
+  2.再输入$ git remote add origin git@github.com:djqiang/gitdemo.git 就不会报错了！
+  3.如果输入$ git remote rm origin 还是报错的话，error: Could not remove config section 'remote.origin'. 我们需要修改gitconfig文件的内容
+  4.找到你的github的安装路径，我的是C:\Users\ASUS\AppData\Local\GitHub\PortableGit_ca477551eeb4aea0e4ae9fcd3358bd96720bb5c8\etc
+  5.找到一个名为gitconfig的文件，打开它把里面的[remote "origin"]那一行删掉就好了！
+(3)如果输入 git push origin master
+   提示出错信息：error:failed to push som refs to .......
+ 解决办法如下：
+  1.先输入$ git pull origin master //先把远程服务器github上面的文件拉下来
+  2.再输入$ git push origin master
+  3.如果出现报错 fatal: Couldn't find remote ref master或者fatal: 'origin' does not appear to be a git repository以及fatal: Could not read from remote repository.
+  4.则需要重新输入$ git remote add origin git@github.com:djqiang/gitdemo.git
+
+ 
+
+
